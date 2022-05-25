@@ -1,3 +1,3 @@
-module github.com/pauloalchemist/apitempo
+module github.com/pauloalchemist/climabr
 
 go 1.18
