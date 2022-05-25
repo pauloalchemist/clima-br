@@ -1,4 +1,4 @@
-## ApiTempo - Api sobre previsão do tempo no Brasil
+## ClimaBR - Cli sobre previsão do tempo no Brasil
 
 
 
