@@ -22,20 +22,15 @@ func main() {
 	URL := fmt.Sprintf("%s/api/v1/weather/locale/7554/current?token=%s", baseURL, key)
 
 	resp, err := http.Get(URL)
-	if err != nil {
-		log.Fatal(err)
-	}
+	cli.CheckError(err)
+
 	defer resp.Body.Close()
 
 	data, err := io.ReadAll(resp.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
+	cli.CheckError(err)
 
 	conditions, err := cli.ParseResponse(data)
-	if err != nil {
-		log.Fatal(err)
-	}
+	cli.CheckError(err)
 
 	fmt.Println("Cidade:", conditions.City)
 	fmt.Println("Temperatura (°C):", conditions.Temp)
