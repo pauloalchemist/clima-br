@@ -14,12 +14,21 @@ func TestParseResponse(t *testing.T) {
 
 	expect := cli.Conditions{
 		City: "Feira de Santana",
+		Temp: 21,
 	}
 
 	got, err := cli.ParseResponse(data)
 	cli.CheckError(err)
 
-	if expect.City != got.City {
-		t.Errorf("Expect city: %q | But got city: %q.  ", expect, got.City)
-	}
+	t.Run("ParseExpectCity", func(t *testing.T) {
+		if expect.City != got.City {
+			t.Errorf("Expect city: %v | But got city: %v.  ", expect.City, got.City)
+		}
+	})
+
+	t.Run("ParseExpectTemp", func(t *testing.T) {
+		if expect.Temp != got.Temp {
+			t.Errorf("Expect temp: %v | But got temp: %v.  ", expect.Temp, got.Temp)
+		}
+	})
 }
